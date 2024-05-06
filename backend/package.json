@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.3"
+  },
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Simple backend for payment wallet app",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Prasad Hp",
+  "license": "ISC"
+}
