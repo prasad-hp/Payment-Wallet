@@ -1,5 +1,5 @@
 import express from "express"
-import zodUser from "./zodUser.js"
+import { zodSignUp, zodSignIn } from "./zodUser.js"
 import User from "../db.js";
 import jwt from "jsonwebtoken"
 import JWT_SECRET from "../config.js";
@@ -10,7 +10,7 @@ const router = express.Router()
 router.post("/signup", async(req, res)=>{
     try {
         const userData = req.body;  
-        const parsedUserData = zodUser.safeParse(userData)
+        const parsedUserData = zodSignUp.safeParse(userData)
 
         if(!parsedUserData.success){
             return res.status(400).json({message: "Wrong Input"})
@@ -30,6 +30,38 @@ router.post("/signup", async(req, res)=>{
             message:"User Created Successfully",
             token: token
         })
+    } catch (error) {
+        res.status(500).json(error.message)
+    }
+})
+
+router.post("/signin", async(req, res)=>{
+    try {
+        const loginUser = req.body
+        const parsedUserData = zodSignIn.safeParse(loginUser)
+
+        if(!parsedUserData.success){
+            return res.status(400).json({message:"Invalid Inputs"})
+        }
+        const existingUser = await User.findOne({
+            email: loginUser.email,
+            password: loginUser.password
+        })
+
+        if(!existingUser){
+            return res.status(400).json({message:"user Not found"})
+        }
+
+        const userId = existingUser._id
+        const token = jwt.sign({
+            userId
+        }, JWT_SECRET)
+        
+        res.status(200).json({
+            message: "User LoggedIn successfully",
+            token: token
+        })
+
     } catch (error) {
         res.status(500).json(error.message)
     }

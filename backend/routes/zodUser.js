@@ -1,10 +1,13 @@
-import zod from "zod"
+import zod, { string } from "zod"
 
-const zodUser = zod.object({
+export const zodSignUp = zod.object({
     email:zod.string().email(),
     firstName:zod.string(),
     lastName:zod.string(),
     password:zod.string(),
     })
 
-export default zodUser;
+export const zodSignIn = zod.object({
+    email:zod.string().email(),
+    password: string()
+})
