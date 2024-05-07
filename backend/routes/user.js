@@ -1,6 +1,6 @@
 import express from "express"
 import { zodSignUp, zodSignIn, zodUpdate } from "./zodUser.js"
-import User from "../db.js";
+import {User} from "../db.js";
 import jwt from "jsonwebtoken"
 import JWT_SECRET from "../config.js";
 import authMiddleware from "../middleware.js";
@@ -84,5 +84,33 @@ router.put("/", authMiddleware, async(req, res)=>{
     }
 })
 
+router.get("/bulk", async(req, res)=>{
+    try {
+        const searchText = req.query.filter || "";
+        const users = await User.find({
+            $or: [{
+                firstName: {
+                    "$regex":searchText
+                }
+            },  {
+                    lastName:{
+                        "$regex": searchText
+                    }
+                }
+            ]
+        })
+        res.json({
+            user: users.map(user=>({
+                email:user.email,
+                firstName:user.firstName,
+                lastName:user.lastName,
+                _id:user._id
+            }))
+        })
+        console.log(searchResult)
+    } catch (error) {
+        res.status(500).json(error.message)
+    }
+})
 
 export default router;
