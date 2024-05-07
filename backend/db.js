@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 mongoose.connect("mongodb://localhost:27017/payment-wallet")
 
 const userSchema = mongoose.Schema({
-    userName: {
+    firstName: {
         type:String,
         required: true
     },
