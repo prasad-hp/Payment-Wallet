@@ -1,8 +1,9 @@
 import express from "express"
-import { zodSignUp, zodSignIn } from "./zodUser.js"
+import { zodSignUp, zodSignIn, zodUpdate } from "./zodUser.js"
 import User from "../db.js";
 import jwt from "jsonwebtoken"
 import JWT_SECRET from "../config.js";
+import authMiddleware from "../middleware.js";
 
 const router = express.Router()
 
@@ -58,7 +59,7 @@ router.post("/signin", async(req, res)=>{
         }, JWT_SECRET)
         
         res.status(200).json({
-            message: "User LoggedIn successfully",
+            message: "User LoggedIn  successfully",
             token: token
         })
 
@@ -66,5 +67,22 @@ router.post("/signin", async(req, res)=>{
         res.status(500).json(error.message)
     }
 })
+
+router.put("/", authMiddleware, async(req, res)=>{
+    try {
+        const updateUser = req.body;
+        const parsedUpdateUser = zodUpdate.safeParse(updateUser)
+        if(!parsedUpdateUser.success){
+            return res.status(400).json({message:"Please provide valid inputs"})
+        }
+        await User.findOne(req.body,{
+            id: req.userId
+        })
+        res.status(200).json({message:"Details updated successfully"})
+    } catch (error) {
+        res.status(500).json(error.message)
+    }
+})
+
 
 export default router;

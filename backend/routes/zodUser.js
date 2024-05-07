@@ -11,3 +11,9 @@ export const zodSignIn = zod.object({
     email:zod.string().email(),
     password: string()
 })
+
+export const zodUpdate = zod.object({
+    firstName: zod.string().optional(),
+    lastName:zod.string().optional(),
+    password:zod.string().optional()
+})
