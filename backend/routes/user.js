@@ -115,4 +115,16 @@ router.get("/bulk", async(req, res)=>{
     }
 })
 
+router.get("/dashboard", authMiddleware, async(req, res)=>{
+    try {
+        const {firstName, lastName, email} = await User.findOne({
+            _id : req.userId
+        })
+        res.status(200).json({firstName, lastName, email})
+    } catch (error) {
+        res.status(500).json(error.message)
+    }
+
+})
+
 export default router;
