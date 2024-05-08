@@ -92,11 +92,13 @@ router.get("/bulk", async(req, res)=>{
         const users = await User.find({
             $or: [{
                     firstName: {
-                        "$regex":filter
+                        "$regex":filter,
+                        "$options" : "i"
                     }
             },  {
                     lastName:{
-                        "$regex": filter
+                        "$regex": filter,
+                        "$options" : "i"
                     }
                 }
             ]
@@ -109,7 +111,6 @@ router.get("/bulk", async(req, res)=>{
                 _id:user._id
             }))
         })
-        console.log(filter)
     } catch (error) {
         res.status(500).json(error.message)
     }
