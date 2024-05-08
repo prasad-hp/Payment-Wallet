@@ -16,11 +16,11 @@ function LoginPage(){
                 <p>Please Enter your details to Login</p>
                 <form className="w-full flex flex-col items-center">
                     <InputField input={"Email"} placeholder={"Enter Email Address"} value={email} onChange={(event)=>setEmail(event.target.value)}/>
-                    <InputField input={"Password"} placeholder={"Enter Password"} value={password} onChange={(event)=>setPassword(event.target.value)} />
-                    <Button submit={"Submit"} onClick={async()=>{
+                    <InputField input={"Password"} placeholder={"Enter the Password"} value={password} onChange={(event)=>setPassword(event.target.value)} />
+                    <Button submit={"Submit"} type="submit"onClick={async()=>{
                         const response = await axios({
                             method:"post",
-                            url:"http://localhost:3000/api/v1/user/signin",
+                            url:"http://localhost:3000/api/v1/user/login",
                             data:{
                                 email:email,
                                 password: password
