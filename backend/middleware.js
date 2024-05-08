@@ -2,7 +2,7 @@ import JWT_SECRET from "./config.js";
 import jwt from "jsonwebtoken"
 
 function authMiddleware(req, res, next){
-    authHeaders = req.headers.authorization;
+    const authHeaders = req.headers.authorization;
 
     if(!authHeaders || !authHeaders.startsWith("Bearer")){
         return res.status(403).json({})
