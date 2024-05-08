@@ -3,12 +3,14 @@ import Heading from "../components/Heading";
 import InputField from "../components/InputField";
 import Button from "../components/Button";
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
 function SignUpPage(){
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const navigate = useNavigate();
 
 
     return(
@@ -22,7 +24,7 @@ function SignUpPage(){
                     <InputField input={"Email"} placeholder={"Enter Email Address"} value = {email} onChange={(event)=>{setEmail(event.target.value)}}/>
                     <InputField input={"Password"} placeholder={"Enter Password"} value ={password} onChange={(event)=>{setPassword(event.target.value)}}/>    
                     {/* <InputField input={"Confirm Password"} placeholder={"Confirm Password"} /> */}
-                    <Button submit={"Submit"} onClick={async()=>{
+                    <Button submit={"Submit"} type="submit" onClick={async()=>{
                         const response = await axios({
                                 method: "post",
                                 url:"http://localhost:3000/api/v1/user/signup",
@@ -32,8 +34,10 @@ function SignUpPage(){
                                     email: email,
                                     password: password
                                 }
-                                
                             })
+                            console.log(response)
+                            localStorage.setItem("token", response.data.token)
+                            navigate("/dashboard")
                     }} />
                 </form>
                 <p>Already Created Account ? <a href="./login">LogIn</a></p>
