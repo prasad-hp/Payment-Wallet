@@ -3,7 +3,7 @@ import Heading from "../components/Heading";
 import InputField from "../components/InputField";
 import Button from "../components/Button";
 
-function LoginPage(){
+function SignInPage(){
     return(
         <div className="bg-gray-200 h-screen flex justify-center items-center">
             <div className="bg-white w-full py-10 lg:w-3/12 px-2 flex flex-col items-center p-0 rounded-xl md:w-1/3 mx-5">
@@ -18,4 +18,4 @@ function LoginPage(){
     )
 }
 
-export default LoginPage;
+export default SignInPage;

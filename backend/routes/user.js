@@ -1,6 +1,6 @@
 import express from "express"
-import { zodSignUp, zodSignIn, zodUpdate } from "./zodUser.js"
-import {User} from "../db.js";
+import { zodSignUp, zodLogIn, zodUpdate } from "./zodUser.js"
+import {Account, User} from "../db.js";
 import jwt from "jsonwebtoken"
 import JWT_SECRET from "../config.js";
 import authMiddleware from "../middleware.js";
@@ -27,6 +27,10 @@ router.post("/signup", async(req, res)=>{
         const token = jwt.sign({
             userId
         },JWT_SECRET);
+        await Account.create({
+            userId,
+            balance: 1 + Math.floor(Math.random()*10000)
+        })
         res.status(200).json({
             message:"User Created Successfully",
             token: token
@@ -36,10 +40,10 @@ router.post("/signup", async(req, res)=>{
     }
 })
 
-router.post("/signin", async(req, res)=>{
+router.post("/login", async(req, res)=>{
     try {
         const loginUser = req.body
-        const parsedUserData = zodSignIn.safeParse(loginUser)
+        const parsedUserData = zodLogIn.safeParse(loginUser)
 
         if(!parsedUserData.success){
             return res.status(400).json({message:"Invalid Inputs"})

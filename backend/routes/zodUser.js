@@ -7,7 +7,7 @@ export const zodSignUp = zod.object({
     password:zod.string(),
     })
 
-export const zodSignIn = zod.object({
+export const zodLogIn = zod.object({
     email:zod.string().email(),
     password: string()
 })
