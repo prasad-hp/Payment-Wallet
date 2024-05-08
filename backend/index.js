@@ -14,4 +14,6 @@ app.use(express.json())
 app.use("/api/v1", mainRouter); 
 
 
-app.listen(port)
+app.listen(port, ()=>{
+    console.log(`Port is Running Successfully at Port ${port}`)
+})
