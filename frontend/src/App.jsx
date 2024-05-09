@@ -24,10 +24,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={isLogged ? <Navigate to = "/dashboard" />: <Navigate to = "/login" />}/>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/transfer" element={<TransferPage />} />
+        <Route path="/dashboard" element={!isLogged ? <Navigate to = "/login" /> : <Dashboard />}/>
+        <Route path="/login" element={!isLogged ? <LoginPage /> : <Dashboard />}/>
+        <Route path="/signup" element={!isLogged ? <SignUpPage /> : <Dashboard />}/>
+        <Route path="/transfer" element={!isLogged ? <Navigate to = "/login" /> : <TransferPage />}/>
       </Routes>
     </BrowserRouter>
 
