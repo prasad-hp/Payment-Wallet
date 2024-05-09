@@ -13,6 +13,7 @@ function TransferPage(){
     const id = receiverData.get("id");
     const firstName = receiverData.get("name");
     const email = receiverData.get("email")
+
     if(amount<0){
         setAmount(0)
     }

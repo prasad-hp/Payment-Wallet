@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Heading from "../components/Heading";
 import InputField from "../components/InputField";
 import Button from "../components/Button";
@@ -11,6 +11,7 @@ function SignUpPage(){
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate();
+
 
     const handleSubmit = async(event)=>{
         event.preventDefault()

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Heading from "../components/Heading";
 import InputField from "../components/InputField";
 import Button from "../components/Button";
@@ -9,6 +9,8 @@ function LoginPage(){
     const [email, setEmail] = useState("")
     const [password, setPassword]= useState("")
     const navigate = useNavigate()
+    const [message, setMessage] = useState("")
+
 
     const handleSubmit= async(event)=>{
         event.preventDefault()
@@ -22,11 +24,11 @@ function LoginPage(){
                 }
             })
             localStorage.setItem("token", response.data.token)
-            console.log(response)
+            setMessage(response.data.message)
             navigate("/dashboard")
             
         } catch (error) {
-            console.error(error)
+            setMessage(error.response.data.message)
         }
     }
     return(
@@ -37,6 +39,7 @@ function LoginPage(){
                 <form className="w-full flex flex-col items-center" onSubmit={handleSubmit}>
                     <InputField input={"Email"} placeholder={"Enter Email Address"}  value={email} onChange={(event)=>setEmail(event.target.value)}/>
                     <InputField input={"Password"} placeholder={"Enter the Password"} type={password} value={password} onChange={(event)=>setPassword(event.target.value)} />
+                    <p>{message}</p>
                     <Button submit={"Submit"} type="submit" />
                 </form>
                 <p>Account not Created ? <a href="./signup" >SignUp</a></p>
