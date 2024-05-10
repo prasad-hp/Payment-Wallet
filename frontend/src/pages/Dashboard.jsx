@@ -9,8 +9,11 @@ function Dashboard(){
     const[firstName, setFirstName] = useState("")
     const[balance, setBalance] = useState("")
     const [message, setMessage] = useState("")
+    const [isLoggedIn, setIsLoggedIn] = useState(true)
 
+    
     useEffect(()=>{
+        setIsLoggedIn(localStorage.getItem("token"))
         getUserData()
         getUserBalance()
     }, [])
@@ -28,7 +31,6 @@ function Dashboard(){
         } catch (error) {
             setMessage(error.response.data.message)
         }
-        
     }
     const getUserBalance = async()=>{
         try {
@@ -45,15 +47,18 @@ function Dashboard(){
         }
         
     }
+    const page = <div className="bg-gray-100 h-screen max-h-screen m-0 p-0"> 
+                    <Navbar firstName={firstName}/>
+                    <h1 className="text-2xl">Your Balance is ₹{balance}</h1>
+                    <div className="flex flex-col items-center">
+                        <p>{message}</p>
+                        <ContactList />
+                    </div>
+                </div>
     return(
-        <div className="bg-gray-100 h-screen max-h-screen m-0 p-0"> 
-            <Navbar firstName={firstName}/>
-            <h1 className="text-2xl">Your Balance is ₹{balance}</h1>
-            <div className="flex flex-col items-center">
-                <p>{message}</p>
-                <ContactList />
-            </div>
-        </div>
+        <>
+            {isLoggedIn ? <> {page}</> : <div>You are not Logged In Please Login</div> }
+        </>
     )
 }
 
