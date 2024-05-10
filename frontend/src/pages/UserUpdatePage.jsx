@@ -7,9 +7,9 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
 function UserUpdatePage(){
-    const [firstName, setFirstName] = useState(null)
-    const [lastName, setLastName] = useState(null)
-    const [password, setPassword] = useState(null)
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [password, setPassword] = useState("")
     const navigate = useNavigate();
     const [message, setMessage] = useState("")
     const[userName, setUserName] = useState("")
@@ -30,6 +30,9 @@ function UserUpdatePage(){
                             }
             })
             setUserName(response.data.firstName)
+            setFirstName(response.data.firstName)
+            setLastName(response.data.lastName)
+            setPassword(response.data.password)
         } catch (error) {
             setMessage(error.response.data.message)
         }
