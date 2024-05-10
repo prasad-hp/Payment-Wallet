@@ -5,6 +5,7 @@ import { Route, Routes, BrowserRouter, redirect, Navigate } from 'react-router-d
 import LoginPage from './pages/LoginPage'
 import TransferPage from './pages/Transfer'
 import Dashboard from './pages/Dashboard'
+import UserUpdatePage from './pages/UserUpdatePage'
 
 function App() {
   const [isLogged, setIsLogged] = useState(true)
@@ -28,6 +29,7 @@ function App() {
         <Route path="/login" element={<LoginPage /> }/>
         <Route path="/signup" element={<SignUpPage /> }/>
         <Route path="/transfer" element={<TransferPage />}/>
+        <Route path="/update" element={<UserUpdatePage />}/>
       </Routes>
     </BrowserRouter>
 
