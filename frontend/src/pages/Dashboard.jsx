@@ -46,7 +46,7 @@ function Dashboard(){
         
     }
     return(
-        <div className="bg-gray-100 h-screen m-0 p-0"> 
+        <div className="bg-gray-100 h-screen max-h-screen m-0 p-0"> 
             <Navbar firstName={firstName}/>
             <h1 className="text-2xl">Your Balance is ₹{balance}</h1>
             <div className="flex flex-col items-center">

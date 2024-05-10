@@ -58,10 +58,10 @@ function UserUpdatePage(){
         }
     }
     return(
-        <div className="h-screen">
+        <div className="max-h-screen h-screen bg-gray-200">
             <Navbar firstName={userName}/>
-            <div className="bg-gray-200  flex justify-center items-center">
-                <div className="bg-white w-full py-10 lg:w-3/12 px-2 flex flex-col items-center p-0 rounded-xl md:w-1/3 mx-5">
+            <div className="flex h-5/6 my-2 justify-center items-center">
+                <div className="bg-white w-full py-10 lg:w-3/12 flex flex-col items-center rounded-xl md:w-1/3 min-w-80 max-w-96">
                     <Heading heading={"Update User"}  />
                     <p className="text-gray-800">Plase Enter your details Update Account</p>
                     <form className="w-full flex flex-col items-center" onSubmit={handleSubmit}>

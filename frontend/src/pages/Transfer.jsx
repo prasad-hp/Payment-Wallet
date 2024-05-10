@@ -76,11 +76,11 @@ function TransferPage(){
     }
 
     return(
-        <div className="h-screen">
+        <div className="max-h-screen h-screen bg-gray-200">
             <Navbar firstName={userName}/>
             <h1 className="text-2xl">Your Balance is ₹{balance}</h1>
-            <div className="bg-gray-200 flex justify-center h-5/6 items-center">
-                <div className="bg-white w-full py-10 lg:w-3/12 px-2 flex flex-col items-center p-0 rounded-xl md:w-1/3 mx-5">
+            <div className="bg-gray-200 flex justify-center items-center ">
+                <div className="bg-white w-full pt-5 lg:w-3/12 px-2 flex flex-col items-center p-0 rounded-xl md:w-1/3 max-w-96 min-w-80 h-5/6 min-h-5/6">
                     <Heading heading={"Transfer Fund"} />
                     <ContactCardTransfer contactName={firstName} email={email}/>
                     <form onSubmit={transferFunds} className="w-full flex flex-col items-center">
@@ -89,7 +89,7 @@ function TransferPage(){
                         </div>
                         <p>{status}</p>
                         <div className="w-full flex align-middle justify-center">   
-                            <button className="border-2 w-10/12 rounded-md h-10 bg-green-600 text-white text-3 my-4" type="submit">Initiate Tranfer</button>
+                            <button className="border-2 w-10/12 rounded-md h-10 bg-green-600 text-white text-3 my-1 md:my-5" type="submit">Initiate Tranfer</button>
                         </div>
                     </form>
                 </div>
