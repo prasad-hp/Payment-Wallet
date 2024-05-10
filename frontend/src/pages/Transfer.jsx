@@ -34,7 +34,7 @@ function TransferPage(){
         setAmount(0)
         setStatus(response.data.message)
         } catch (error) {
-            console.error(error)
+            setStatus(error.response.data.message)
         }   
     }
 

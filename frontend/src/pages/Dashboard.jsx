@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Navbar from "../components/Navbar";
 import ContactList from "../components/ContactList";
 import axios from "axios";
 
 
+
 function Dashboard(){
     const[userName, setUserName] = useState("")
     const[balance, setBalance] = useState("")
+    const [message, setMessage] = useState("")
 
     useEffect(()=>{
         getUserData()
@@ -24,7 +26,7 @@ function Dashboard(){
             })
             setUserName(response.data.firstName)
         } catch (error) {
-            console.error(error.response)
+            setMessage(error.response.data.message)
         }
         
     }
@@ -48,6 +50,7 @@ function Dashboard(){
             <Navbar firstName={userName}/>
             <h1 className="text-2xl">Your Balance is ₹{balance}</h1>
             <div className="flex flex-col items-center">
+                <p>{message}</p>
                 <ContactList />
             </div>
         </div>

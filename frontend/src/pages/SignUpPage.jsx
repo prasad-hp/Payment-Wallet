@@ -11,6 +11,7 @@ function SignUpPage(){
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate();
+    const [message, setMessage] = useState("")
 
 
     const handleSubmit = async(event)=>{
@@ -26,12 +27,12 @@ function SignUpPage(){
                         password: password
                 }
             })
-                console.log(response)
+                setMessage(response.data.message)
                 localStorage.setItem("token", response.data.token)
                 navigate("/dashboard")
         
         } catch (error) {
-            console.error(error.response)
+            setMessage(error.response.data.message)
             
         }
     }
@@ -45,7 +46,7 @@ function SignUpPage(){
                     <InputField input={"Last Name"} placeholder={"Enter Your Last Name"} value={lastName} onChange={(event)=>{setLastName(event.target.value)}}/>
                     <InputField input={"Email"} placeholder={"Enter Email Address"} value = {email} onChange={(event)=>{setEmail(event.target.value)}}/>
                     <InputField input={"Password"} type={password} placeholder={"Enter Password"} value ={password} onChange={(event)=>{setPassword(event.target.value)}}/>    
-                    {/* <InputField input={"Confirm Password"} placeholder={"Confirm Password"} /> */}
+                    <p>{message}</p>
                     <Button submit={"Submit"} type="submit" />
                 </form>
                 <p>Already Created Account ? <a href="./login">LogIn</a></p>
