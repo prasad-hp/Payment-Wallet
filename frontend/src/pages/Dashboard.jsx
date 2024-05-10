@@ -6,7 +6,7 @@ import axios from "axios";
 
 
 function Dashboard(){
-    const[userName, setUserName] = useState("")
+    const[firstName, setFirstName] = useState("")
     const[balance, setBalance] = useState("")
     const [message, setMessage] = useState("")
 
@@ -24,7 +24,7 @@ function Dashboard(){
                                 Authorization: "Bearer " + localStorage.getItem("token")
                             }
             })
-            setUserName(response.data.firstName)
+            setFirstName(response.data.firstName)
         } catch (error) {
             setMessage(error.response.data.message)
         }
@@ -47,7 +47,7 @@ function Dashboard(){
     }
     return(
         <div className="bg-gray-100 h-screen m-0 p-0"> 
-            <Navbar firstName={userName}/>
+            <Navbar firstName={firstName}/>
             <h1 className="text-2xl">Your Balance is ₹{balance}</h1>
             <div className="flex flex-col items-center">
                 <p>{message}</p>

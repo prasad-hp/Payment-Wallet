@@ -13,7 +13,44 @@ function TransferPage(){
     const id = receiverData.get("id");
     const firstName = receiverData.get("name");
     const email = receiverData.get("email")
+    const[userName, setUserName] = useState("")
+    const[balance, setBalance] = useState("")
 
+    useEffect(()=>{
+        getUserData()
+        getUserBalance()
+    }, [amount])
+
+    const getUserData = async()=>{
+        try {
+            const response = await axios({
+                            method:"get",
+                            url:"http://localhost:3000/api/v1/user/dashboard",
+                            headers:{
+                                Authorization: "Bearer " + localStorage.getItem("token")
+                            }
+            })
+            setUserName(response.data.firstName)
+        } catch (error) {
+            setMessage(error.response.data.message)
+        }
+        
+    }
+    const getUserBalance = async()=>{
+        try {
+            const response = await axios({
+                method:"get",
+                url:"http://localhost:3000/api/v1/account/balance",
+                headers:{
+                    Authorization: "Bearer " + localStorage.getItem("token")
+                }
+            })
+            setBalance(response.data)
+        } catch (error) {
+            console.error(error.response)
+        }
+        
+    }
     if(amount<0){
         setAmount(0)
     }
@@ -40,7 +77,8 @@ function TransferPage(){
 
     return(
         <div className="h-screen">
-            <Navbar firstName=""/>
+            <Navbar firstName={userName}/>
+            <h1 className="text-2xl">Your Balance is ₹{balance}</h1>
             <div className="bg-gray-200 flex justify-center h-5/6 items-center">
                 <div className="bg-white w-full py-10 lg:w-3/12 px-2 flex flex-col items-center p-0 rounded-xl md:w-1/3 mx-5">
                     <Heading heading={"Transfer Fund"} />
