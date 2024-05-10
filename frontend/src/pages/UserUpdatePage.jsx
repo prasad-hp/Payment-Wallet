@@ -7,9 +7,9 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
 function UserUpdatePage(){
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("")
-    const [password, setPassword] = useState("")
+    const [firstName, setFirstName] = useState(null)
+    const [lastName, setLastName] = useState(null)
+    const [password, setPassword] = useState(null)
     const navigate = useNavigate();
     const [message, setMessage] = useState("")
     const[userName, setUserName] = useState("")
