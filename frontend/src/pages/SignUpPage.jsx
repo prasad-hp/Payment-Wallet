@@ -45,7 +45,7 @@ function SignUpPage(){
                     <InputField input={"First Name"} placeholder={"Enter Your First Name"} value={firstName} onChange={(event)=>{setFirstName(event.target.value)}}/>
                     <InputField input={"Last Name"} placeholder={"Enter Your Last Name"} value={lastName} onChange={(event)=>{setLastName(event.target.value)}}/>
                     <InputField input={"Email"} placeholder={"Enter Email Address"} value = {email} onChange={(event)=>{setEmail(event.target.value)}}/>
-                    <InputField input={"Password"} type={password} placeholder={"Enter Password"} value ={password} onChange={(event)=>{setPassword(event.target.value)}}/>    
+                    <InputField input={"Password"} type={"password"} placeholder={"Enter Password"} value ={password} onChange={(event)=>{setPassword(event.target.value)}}/>    
                     <p>{message}</p>
                     <Button submit={"Submit"} type="submit" />
                 </form>

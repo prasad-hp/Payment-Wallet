@@ -8,7 +8,7 @@ import Dashboard from './pages/Dashboard'
 import UserUpdatePage from './pages/UserUpdatePage'
 
 function App() {
-  const [isLogged, setIsLogged] = useState(true)
+  const [isLogged, setIsLogged] = useState(false)
 
   useEffect(()=>{
     try {

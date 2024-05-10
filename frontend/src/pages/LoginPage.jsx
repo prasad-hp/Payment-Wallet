@@ -38,7 +38,7 @@ function LoginPage(){
                 <p>Please Enter your details to Login</p>
                 <form className="w-full flex flex-col items-center" onSubmit={handleSubmit}>
                     <InputField input={"Email"} placeholder={"Enter Email Address"}  value={email} onChange={(event)=>setEmail(event.target.value)}/>
-                    <InputField input={"Password"} placeholder={"Enter the Password"} type={password} value={password} onChange={(event)=>setPassword(event.target.value)} />
+                    <InputField input={"Password"} placeholder={"Enter the Password"} type={"password"} value={password} onChange={(event)=>setPassword(event.target.value)} />
                     <p>{message}</p>
                     <Button submit={"Submit"} type="submit" />
                 </form>
