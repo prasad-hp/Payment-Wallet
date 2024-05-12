@@ -16,6 +16,7 @@ function SignUpPage(){
 
     const handleSubmit = async(event)=>{
         event.preventDefault()
+        setMessage("Loading Please Wait")
         try {
                         const response = await axios({
                     method: "post",

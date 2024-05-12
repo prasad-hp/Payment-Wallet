@@ -25,6 +25,7 @@ function TransferPage(){
 
 
     const getUserData = async()=>{
+        
         try {
             const response = await axios({
                             method:"get",
@@ -58,6 +59,7 @@ function TransferPage(){
         setAmount(0)
     }
     const transferFunds = async(event)=>{
+        setStatus("Transaction is in Progress, Please Wait")
         event.preventDefault()
         try {
             const response = await axios({

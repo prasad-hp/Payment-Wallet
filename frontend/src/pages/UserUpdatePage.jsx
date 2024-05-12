@@ -42,6 +42,7 @@ function UserUpdatePage(){
 
     const handleSubmit = async(event)=>{
         event.preventDefault()
+        setMessage("Loading Please Wait")
         try {
                         const response = await axios({
                     method: "put",
@@ -55,7 +56,6 @@ function UserUpdatePage(){
                     }
             })
                 setMessage(response.data.message)
-                navigate("/dashboard")
         
         } catch (error) {
             setMessage(error.response.data.message)
