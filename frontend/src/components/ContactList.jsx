@@ -31,8 +31,8 @@ function ContactList(){
                 <input type="text" placeholder="Search Your Contacts" className="h-12 rounded-lg w-full " value={inputText} onChange={(event)=>{setInputText(event.target.value)}} />
             </form>
             <p>{message}</p>
-            <div className="w-full overflow-x-auto max-h-96 flex flex-col items-center">
-                <div className="w-11/12">
+            <div className="w-full sm:overflow-x-auto overflow-y-auto max-h-96 flex flex-col items-center">
+                <div className="sm:w-11/12 w-full">
                     {searchResults.map((searchResult, index)=>{
                         return <ContactCard key={index} userData={searchResult} />
                         })}
