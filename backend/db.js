@@ -1,6 +1,8 @@
+import dotenv from "dotenv"
+dotenv.config()
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb://localhost:27017/payment-wallet")
+mongoose.connect(process.env.MONGODB)
 
 const userSchema = mongoose.Schema({
     firstName: {
