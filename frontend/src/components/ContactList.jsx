@@ -25,7 +25,7 @@ function ContactList(){
     }
 
     return(
-        <div className="flex flex-col items-center bg-blue-300 sm:w-1/2 lg:w-1/3 p-10 rounded-xl min-w-96">
+        <div className="flex flex-col items-center bg-blue-300 sm:w-1/2 lg:w-1/3 p-10 rounded-xl min-w-96 h-5/6">
             <h2 className=" font-sans my-3 text-white font-semibold text-6xl">Search to Transfer</h2>
             <form onChange={handleChange} className="w-full my-2">
                 <input type="text" placeholder="Search Your Contacts" className="h-12 rounded-lg w-full " value={inputText} onChange={(event)=>{setInputText(event.target.value)}} />
