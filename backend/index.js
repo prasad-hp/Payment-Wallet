@@ -7,8 +7,11 @@ const app = express()
 
 
 app.use(cors({
-    origin : "https://payment-wallet.vercel.app/"
-}))
+    origin: [
+      "https://payment-wallet.vercel.app",
+      "http://localhost:5173"
+    ]
+  }));
 app.use(express.json())
 
 app.use("/api/v1", mainRouter); 

@@ -24,7 +24,7 @@ function UserUpdatePage(){
         try {
             const response = await axios({
                             method:"get",
-                            url:"http://localhost:3000/api/v1/user/dashboard",
+                            url:"https://payment-wallet-r05x.onrender.com/api/v1/user/dashboard",
                             headers:{
                                 Authorization: "Bearer " + localStorage.getItem("token")
                             }
@@ -45,7 +45,7 @@ function UserUpdatePage(){
         try {
                         const response = await axios({
                     method: "put",
-                    url:"http://localhost:3000/api/v1/user",
+                    url:"https://payment-wallet-r05x.onrender.com/api/v1/user",
                     data: {
                         firstName: firstName,
                         lastName: lastName,

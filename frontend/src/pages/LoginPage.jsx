@@ -17,7 +17,7 @@ function LoginPage(){
         try {
             const response = await axios({
                 method:"post",
-                url:"http://localhost:3000/api/v1/user/login",
+                url:"https://payment-wallet-r05x.onrender.com/api/v1/user/login",
                 data:{
                     email:email,
                     password: password

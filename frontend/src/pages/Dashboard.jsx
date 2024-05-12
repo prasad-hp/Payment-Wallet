@@ -22,7 +22,7 @@ function Dashboard(){
         try {
             const response = await axios({
                             method:"get",
-                            url:"http://localhost:3000/api/v1/user/dashboard",
+                            url:"https://payment-wallet-r05x.onrender.com/api/v1/user/dashboard",
                             headers:{
                                 Authorization: "Bearer " + localStorage.getItem("token")
                             }
@@ -36,7 +36,7 @@ function Dashboard(){
         try {
             const response = await axios({
                 method:"get",
-                url:"http://localhost:3000/api/v1/account/balance",
+                url:"https://payment-wallet-r05x.onrender.com/api/v1/account/balance",
                 headers:{
                     Authorization: "Bearer " + localStorage.getItem("token")
                 }

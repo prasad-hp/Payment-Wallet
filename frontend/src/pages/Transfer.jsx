@@ -28,7 +28,7 @@ function TransferPage(){
         try {
             const response = await axios({
                             method:"get",
-                            url:"http://localhost:3000/api/v1/user/dashboard",
+                            url:"https://payment-wallet-r05x.onrender.com/api/v1/user/dashboard",
                             headers:{
                                 Authorization: "Bearer " + localStorage.getItem("token")
                             }
@@ -43,7 +43,7 @@ function TransferPage(){
         try {
             const response = await axios({
                 method:"get",
-                url:"http://localhost:3000/api/v1/account/balance",
+                url:"https://payment-wallet-r05x.onrender.com/api/v1/account/balance",
                 headers:{
                     Authorization: "Bearer " + localStorage.getItem("token")
                 }
@@ -62,7 +62,7 @@ function TransferPage(){
         try {
             const response = await axios({
                             method:"post",
-                            url:"http://localhost:3000/api/v1/account/transfer",
+                            url:"https://payment-wallet-r05x.onrender.com/api/v1/account/transfer",
                             data:{
                                 to:id,
                                 amount: amount

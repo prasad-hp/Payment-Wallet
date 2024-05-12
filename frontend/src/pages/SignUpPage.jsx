@@ -19,7 +19,7 @@ function SignUpPage(){
         try {
                         const response = await axios({
                     method: "post",
-                    url:"http://localhost:3000/api/v1/user/signup",
+                    url:"https://payment-wallet-r05x.onrender.com/api/v1/user/signup",
                     data: {
                         firstName: firstName,
                         lastName: lastName,
