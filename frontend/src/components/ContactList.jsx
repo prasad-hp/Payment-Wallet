@@ -32,7 +32,7 @@ function ContactList(){
             </form>
             <p>{message}</p>
             <div className="w-full sm:overflow-x-auto overflow-y-auto max-h-96 flex flex-col items-center">
-                <div className="sm:w-11/12 w-full">
+                <div className="sm:w-11/12 w-72">
                     {searchResults.map((searchResult, index)=>{
                         return <ContactCard key={index} userData={searchResult} />
                         })}
