@@ -8,7 +8,7 @@ const app = express()
 
 app.use(cors({
     origin: [
-      "https://payment-wallet.vercel.app",
+      "https://payment-wallet.netlify.app",
       "http://localhost:5173"
     ]
   }));
