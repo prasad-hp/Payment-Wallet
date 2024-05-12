@@ -11,7 +11,7 @@ function ContactList(){
         try {
             const response = await axios({
                 method:"get",
-                url:`http://localhost:3000/api/v1/user/bulk?filter=${inputText}`,
+                url:`https://payment-wallet-r05x.onrender.com/api/v1/user/bulk?filter=${inputText}`,
                 headers:{
                     Authorization: "Bearer " + localStorage.getItem("token")
                 }
