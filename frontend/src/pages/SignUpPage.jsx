@@ -40,7 +40,7 @@ function SignUpPage(){
         <div className="bg-gray-200 h-screen flex justify-center items-center">
             <div className="bg-white w-full py-10 lg:w-3/12 px-2 flex flex-col items-center p-0 rounded-xl md:w-1/3 mx-5">
                 <Heading heading={"SignUp"} />
-                <p className="text-gray-800">Plase Enter your details to Create Account</p>
+                <p className="text-gray-800 text-xl">Plase Enter your details to Create Account</p>
                 <form className="w-full flex flex-col items-center" onSubmit={handleSubmit}>
                     <InputField input={"First Name"} placeholder={"Enter Your First Name"} value={firstName} onChange={(event)=>{setFirstName(event.target.value)}}/>
                     <InputField input={"Last Name"} placeholder={"Enter Your Last Name"} value={lastName} onChange={(event)=>{setLastName(event.target.value)}}/>
@@ -49,7 +49,7 @@ function SignUpPage(){
                     <p>{message}</p>
                     <Button submit={"Submit"} type="submit" />
                 </form>
-                <p>Already Created Account ? <a href="./login">LogIn</a></p>
+                <p className="text-xl">Already Created Account ? <a href="./login">LogIn</a></p>
             </div>
         </div>
     

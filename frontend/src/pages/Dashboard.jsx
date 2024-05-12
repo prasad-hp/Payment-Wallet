@@ -49,7 +49,7 @@ function Dashboard(){
     }
     const page = <div className="bg-gray-100 h-screen max-h-screen m-0 p-0"> 
                     <Navbar firstName={firstName}/>
-                    <h1 className="text-2xl">Your Balance is ₹{balance}</h1>
+                    <h1 className="text-3xl">Your Balance is ₹{balance}</h1>
                     <div className="flex flex-col items-center">
                         <p>{message}</p>
                         <ContactList />

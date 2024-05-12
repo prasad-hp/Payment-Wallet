@@ -64,11 +64,11 @@ function UserUpdatePage(){
     }
     const page = <div className="max-h-screen h-screen bg-gray-200">
                     <Navbar firstName={userName}/>
-                    <div className="flex h-5/6 my-2 justify-center items-center">
-                        <div className="bg-white w-full py-10 lg:w-3/12 flex flex-col items-center rounded-xl md:w-1/3 min-w-80 max-w-96">
+                    <div className="flex h-5/6 justify-center items-center">
+                        <div className="bg-white w-full py-10 flex flex-col items-center rounded-xl min-w-lg max-w-lg max-h-lg min-h-96 h-3/4">
                             <Heading heading={"Update User"}  />
-                            <p className="text-gray-800">Plase Enter your details Update Account</p>
-                            <form className="w-full flex flex-col items-center" onSubmit={handleSubmit}>
+                            <p className="text-gray-800 text-xl">Plase Enter your details Update Account</p>
+                            <form className="w-full flex flex-col items-center pt-3" onSubmit={handleSubmit}>
                                 <InputField input={"First Name"} placeholder={"Enter Your First Name"} value={firstName} onChange={(event)=>{setFirstName(event.target.value)}}/>
                                 <InputField input={"Last Name"} placeholder={"Enter Your Last Name"} value={lastName} onChange={(event)=>{setLastName(event.target.value)}}/>
                                 <InputField input={"Password"} type={"password"} placeholder={"Enter Password"} value ={password} onChange={(event)=>{setPassword(event.target.value)}}/>    
