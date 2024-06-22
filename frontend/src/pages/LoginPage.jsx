@@ -12,6 +12,16 @@ function LoginPage(){
     const [message, setMessage] = useState("")
 
 
+    useEffect(()=>{
+        async function getData(){
+            const response = await axios({
+                method:"get",
+                url:"https://payment-wallet-r05x.onrender.com/api/v1/user/hello"
+            })
+            console.log(response.data.message)
+        }
+        getData()
+    }, [])
     const handleSubmit= async(event)=>{
         event.preventDefault()
         setMessage("Loading Please Wait")

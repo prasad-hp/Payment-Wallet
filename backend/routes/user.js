@@ -126,5 +126,12 @@ router.get("/dashboard", authMiddleware, async(req, res)=>{
     }
 
 })
+router.get("/hello", async(req, res)=>{
+    try {
+        res.status(200).json({message:"hello"})
+    } catch (error) {
+        res.status(500).json(error.message)
+    }
+})
 
 export default router;
